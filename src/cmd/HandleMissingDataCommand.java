@@ -5,18 +5,21 @@ import util.Saver;
 import weka.core.Instances;
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.ReplaceMissingValues;
+import weka.filters.unsupervised.attribute.StringToNominal;
 
 public class HandleMissingDataCommand implements Command {
-	public final static String HANDLE_MISSING_CSV_DATASET = "data/handle_missing_mxmh_survey_results.csv";
+	public final static String HANDLE_MISSING_CSV_DATASET = "data/handle_missing_HepatitisCdata.csv";
 
-	public final static String HANDLE_MISSING_ARFF_DATASET = "data/handle_missing_mxmh_survey_results.arff";
+	public final static String HANDLE_MISSING_ARFF_DATASET = "data/handle_missing_HepatitisCdata.arff";
 
 	public void exec() {
 		Instances dataset = Loader.loadArff(RemoveUselessAttributesCommand.REMOVED_REDUNDANCY_ARFF_DATASET);
 
 		try {
-			// Remove dirty row (mentioned in report)
-			dataset.remove(dataset.get(568));
+			StringToNominal s2n = new StringToNominal();
+			s2n.setOptions(new String[] { "-R", "first-last" });
+			s2n.setInputFormat(dataset);
+			dataset = Filter.useFilter(dataset, s2n);
 
 			// Filter missing values
 			ReplaceMissingValues missingValues = new ReplaceMissingValues();

@@ -12,7 +12,7 @@ import weka.core.SerializationHelper;
 public class RunZeroRClassifierCommand implements Command {
 	public void exec() {
 		Instances dataset = Loader.loadArff(CleanDataCommand.CLEAN_ARFF_DATASET);
-		dataset.setClassIndex(dataset.numAttributes() - 1);
+		dataset.setClassIndex(0);
 
 		try {
 			ZeroR model = new ZeroR();

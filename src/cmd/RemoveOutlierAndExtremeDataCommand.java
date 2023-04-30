@@ -8,17 +8,17 @@ import weka.filters.unsupervised.attribute.InterquartileRange;
 import weka.filters.unsupervised.instance.RemoveWithValues;
 
 public class RemoveOutlierAndExtremeDataCommand implements Command {
-	public final static String MARKED_CSV_DATASET = "data/marked_mxmh_survey_results.csv";
+	public final static String MARKED_CSV_DATASET = "data/marked_HepatitisCdata.csv";
 
-	public final static String MARKED_ARFF_DATASET = "data/marked_missing_mxmh_survey_results.arff";
+	public final static String MARKED_ARFF_DATASET = "data/marked_missing_HepatitisCdata.arff";
 
-	public final static String REMOVED_EXTREME_CSV_DATASET = "data/removed_extreme_mxmh_survey_results.csv";
+	public final static String REMOVED_EXTREME_CSV_DATASET = "data/removed_extreme_HepatitisCdata.csv";
 
-	public final static String REMOVED_EXTREME_ARFF_DATASET = "data/removed_extreme_mxmh_survey_results.arff";
+	public final static String REMOVED_EXTREME_ARFF_DATASET = "data/removed_extreme_HepatitisCdata.arff";
 
-	public final static String REMOVED_OUTLIER_CSV_DATASET = "data/removed_outlier_mxmh_survey_results.csv";
+	public final static String REMOVED_OUTLIER_CSV_DATASET = "data/removed_outlier_HepatitisCdata.csv";
 
-	public final static String REMOVED_OUTLIER_ARFF_DATASET = "data/removed_outlier_mxmh_survey_results.arff";
+	public final static String REMOVED_OUTLIER_ARFF_DATASET = "data/removed_outlier_HepatitisCdata.arff";
 
 	public void exec() {
 		Instances dataset = Loader.loadArff(HandleMissingDataCommand.HANDLE_MISSING_ARFF_DATASET);
@@ -35,7 +35,7 @@ public class RemoveOutlierAndExtremeDataCommand implements Command {
 
 			// Remove extreme data
 			RemoveWithValues removeFilter = new RemoveWithValues();
-			removeFilter.setOptions(new String[] { "-S", "0.0", "-C", "33", "-L", "last"
+			removeFilter.setOptions(new String[] { "-S", "0.0", "-C", "15", "-L", "last"
 			});
 			removeFilter.setInputFormat(markedData);
 			Instances removedExtremeData = Filter.useFilter(markedData, removeFilter);
@@ -44,7 +44,7 @@ public class RemoveOutlierAndExtremeDataCommand implements Command {
 			Saver.saveCsv(REMOVED_EXTREME_CSV_DATASET, removedExtremeData);
 
 			// Remove outlier data
-			removeFilter.setOptions(new String[] { "-S", "0.0", "-C", "32", "-L", "last"
+			removeFilter.setOptions(new String[] { "-S", "0.0", "-C", "14", "-L", "last"
 			});
 			removeFilter.setInputFormat(removedExtremeData);
 			Instances removedOutlierData = Filter.useFilter(removedExtremeData,

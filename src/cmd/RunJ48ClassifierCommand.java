@@ -13,7 +13,7 @@ public class RunJ48ClassifierCommand implements Command {
 
 	public void exec() {
 		Instances dataset = Loader.loadArff(DiscretizeAttributesCommand.DISCRETIZED_ARFF_DATASET);
-		dataset.setClassIndex(dataset.numAttributes() - 1);
+		dataset.setClassIndex(0);
 
 		try {
 			J48 tree = new J48();

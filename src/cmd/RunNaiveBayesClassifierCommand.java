@@ -11,8 +11,8 @@ import weka.core.SerializationHelper;
 
 public class RunNaiveBayesClassifierCommand implements Command {
 	public void exec() {
-		Instances dataset = Loader.loadArff(CleanDataCommand.CLEAN_ARFF_DATASET);
-		dataset.setClassIndex(dataset.numAttributes() - 1);
+		Instances dataset = Loader.loadArff(DiscretizeAttributesCommand.DISCRETIZED_ARFF_DATASET);
+		dataset.setClassIndex(0);
 
 		try {
 			NaiveBayes model = new NaiveBayes();

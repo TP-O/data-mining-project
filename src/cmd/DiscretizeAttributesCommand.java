@@ -7,9 +7,9 @@ import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.Discretize;
 
 public class DiscretizeAttributesCommand implements Command {
-	public final static String DISCRETIZED_CSV_DATASET = "data/discretized_mxmh_survey_results.csv";
+	public final static String DISCRETIZED_CSV_DATASET = "data/discretized_HepatitisCdata.csv";
 
-	public final static String DISCRETIZED_ARFF_DATASET = "data/discretized_mxmh_survey_results.arff";
+	public final static String DISCRETIZED_ARFF_DATASET = "data/discretized_HepatitisCdata.arff";
 
 	public void exec() {
 		Instances dataset = Loader.loadArff(CleanDataCommand.CLEAN_ARFF_DATASET);
