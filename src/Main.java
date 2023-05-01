@@ -6,7 +6,7 @@ import cmd.RemoveOutlierAndExtremeDataCommand;
 import cmd.RemoveUselessAttributesCommand;
 import cmd.RunJ48ClassifierCommand;
 import cmd.RunNaiveBayesClassifierCommand;
-import cmd.RunZeroRClassifierCommand;
+import cmd.RunOneRClassifierCommand;
 import cmd.VisualizeCorrelationMatrixCommand;
 
 public class Main {
@@ -21,7 +21,7 @@ public class Main {
 	}
 
 	public static void zeroR() {
-		(new RunZeroRClassifierCommand()).exec();
+		(new RunOneRClassifierCommand()).exec();
 	}
 
 	public static void j48() {
