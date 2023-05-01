@@ -16,6 +16,17 @@ public class HandleMissingDataCommand implements Command {
 		Instances dataset = Loader.loadArff(RemoveUselessAttributesCommand.REMOVED_REDUNDANCY_ARFF_DATASET);
 
 		try {
+			// NA -> missing value (3, 4, 5, 9, 12)
+			int[] replacesAttrs = new int[] { 3, 4, 5, 9, 12 };
+			for (int i = 0; i < dataset.numInstances(); i++) {
+				for (int j = 0; j < replacesAttrs.length; j++) {
+					if (dataset.instance(i).toString(replacesAttrs[j]).equals("NA")) {
+						dataset.instance(i).setMissing(replacesAttrs[j]);
+						;
+					}
+				}
+			}
+
 			StringToNominal s2n = new StringToNominal();
 			s2n.setOptions(new String[] { "-R", "first-last" });
 			s2n.setInputFormat(dataset);

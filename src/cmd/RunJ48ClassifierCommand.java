@@ -12,7 +12,7 @@ import weka.core.SerializationHelper;
 public class RunJ48ClassifierCommand implements Command {
 
 	public void exec() {
-		Instances dataset = Loader.loadArff(DiscretizeAttributesCommand.DISCRETIZED_ARFF_DATASET);
+		Instances dataset = Loader.loadArff(CleanDataCommand.CLEAN_ARFF_DATASET);
 		dataset.setClassIndex(0);
 
 		try {
