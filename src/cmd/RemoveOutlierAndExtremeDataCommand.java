@@ -10,7 +10,7 @@ import weka.filters.unsupervised.instance.RemoveWithValues;
 public class RemoveOutlierAndExtremeDataCommand implements Command {
 	public final static String MARKED_CSV_DATASET = "data/marked_HepatitisCdata.csv";
 
-	public final static String MARKED_ARFF_DATASET = "data/marked_missing_HepatitisCdata.arff";
+	public final static String MARKED_ARFF_DATASET = "data/marked_HepatitisCdata.arff";
 
 	public final static String REMOVED_EXTREME_CSV_DATASET = "data/removed_extreme_HepatitisCdata.csv";
 
