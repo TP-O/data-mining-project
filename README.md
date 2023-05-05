@@ -2,18 +2,19 @@
 Introduction to Data Mining project at HCMIU.
 
 # Dataset
-[Music & Mental Health Survey Results](https://www.kaggle.com/datasets/catherinerasgaitis/mxmh-survey-results)
+[Hepatitis C Prediction Dataset](https://www.kaggle.com/datasets/fedesoriano/hepatitis-c-dataset)
 
 # Step
 - Pre-processing Data
+  - Remove useless data
   - Handle missing data
-  - Dectect outliers and extreme values
+  - Dectect outliers and extreme data
   - Analyze correlation
   - Discretize continuous attributes
 - Classify the dataset using
-  - Decision tree (C4.5)
+  - OneR
   - Naive Bayes
-  - ZeroR
+  - Decision tree (J48)
 - Evaluate the performance using 10-fold cross validation
 
 # Reference
